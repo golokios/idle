@@ -1,5 +1,5 @@
 
-# idle 0.11
+# idle 0.12
 A simple to use JS library to make basic idle/incremental games
 The idea is/was, that this library is not the most complex one. It should just enable everyone (even people who don't understand English) to make a simple game in as few lines as possible.
 
