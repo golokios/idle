@@ -11,6 +11,7 @@
             mps: 0,
             roundTo: 0,
         }
+
         libraryObject.game = function(name, currencySymbol, startingMoney, mainButtonText, mpc, mps, upgradesTitle, description, roundTo) {
 
             gameData.name = name;
@@ -22,16 +23,14 @@
 
             document.title = name;
             document.body.innerHTML = `
-              <section style="min-width: 100vw;min-height: 100vh; font-family: Arial; text-align: center;">
-                <h1 id="title" style="font-size: 40px; margin: 50px 0px 0px 0px;"></h1>
-                <p id="description" style="font-size: 18px; margin: 0px 0px 100px 0px;"></p>
-                <h1 id="currency" style="font-size: 30px"></h1>
-                <div style="padding: 10px 0px 10px 0px;">
-                  <button id="click" onclick="idle.getMoney()" style="padding: 10px 20px 10px 20px; font-size: 16px;"></button>
-                </div>
-                <div style="padding: 10px 0px 10px 50px; text-align: left;">
+              <section id="main">
+                <h1 id="title"></h1>
+                <p id="description"></p>
+                <h1 id="currency"></h1>
+                <button id="click" onclick="idle.getMoney()"></button>
+                <div id="upgradeWrapper">
                   <h2 id="upgrades">Upgrades</h2>
-                  <div id="upgradeConntainer" style="text-align: left;">
+                  <div id="upgradeConntainer">
                   </div>
                 </div>
               </section>
@@ -70,7 +69,7 @@
                 this.cost = cost;
                 this.mpcMultiplier = mpcMultiplier;
                 this.costMultiplier = costMultiplier;
-                document.getElementById("upgradeConntainer").innerHTML += `<button id="` + this.name + `" onclick="` + this.name.toLowerCase() + `.buy()" style="padding: 10px 20px 10px 20px; font-size: 16px; margin: 0px 0px 10px 0px;">Upgrade ` + this.name + ` (Current Level ` + this.level + `) Cost: ` + idle.round(this.cost, gameData.roundTo) + ` ` + gameData.currencySymbol + `</button><br>`
+                document.getElementById("upgradeConntainer").innerHTML += `<button id="${this.name}" onclick="${this.name.toLowerCase()}.buy()" style="padding: 10px 20px 10px 20px; font-size: 16px; margin: 0px 0px 10px 0px;">Upgrade ${this.name} (Current Level ${this.level}) Cost: ${idle.round(this.cost, gameData.roundTo)} ${gameData.currencySymbol} </button><br>`
 
             }
             buy = function() {
@@ -81,9 +80,109 @@
                     this.cost *= this.costMultiplier;
                     this.level += 1;
                     document.getElementById("currency").innerHTML = idle.round(gameData.money, gameData.roundTo) + " " + gameData.currencySymbol;
-                    document.getElementById(this.name).innerHTML = "Upgrade " + this.name + " (Current Level " + this.level + ") Cost: " + idle.round(this.cost, gameData.roundTo) + " " + gameData.currencySymbol;
+                    document.getElementById(this.name).innerHTML = `Upgrade ${this.name} (Current Level ${this.level}) Cost: ${idle.round(this.cost, gameData.roundTo)} ${gameData.currencySymbol}`;
                 }
             }
+        }
+
+        libraryObject.style = function(
+            //Basic CSS
+            bg, fontColor,mainColor, secondaryColor, font,
+            //Title
+            titleFontSize, titleColor, titleFont,
+            //Description
+            dFontSize, dColor, dFont,
+            //Currency
+            cFontSize, cColor, cFont,
+            //Get money Button
+            getMoneyFontSize, getMoneyColor, getMoneyFont, getMoneyButtonColor, getMoneyPadding
+            ) {
+            //Basic CSS
+            this.bg = bg;
+            this.mainColor = mainColor;
+            this.secondaryColor = secondaryColor;
+            this.fontColor = fontColor;
+            this.font = font;
+            //Title
+            this.titleFontSize = titleFontSize;
+            this.titleColor = titleColor;
+            this.titleFont = titleFont;
+            //Description
+            this.dFontSize = dFontSize;
+            this.dColor = dColor;
+            this.dFont = dFont;
+            //Currency
+            this.cFontSize = cFontSize;
+            this.cColor = cColor;
+            this.cFont = cFont;
+            //Get money Button
+            this.getMoneyFontSize = getMoneyFontSize;
+            this.getMoneyColor = getMoneyColor;
+            this.getMoneyFont = getMoneyFont;
+            this.getMoneyButtonColor = getMoneyButtonColor;
+            this.getMoneyPadding = getMoneyPadding;
+
+
+            let style = document.createElement('style');
+            style.innerHTML = `
+                body{
+                    background-color: ${this.bg};
+                    color: ${this.fontColor};
+                    font-family: ${this.font};
+                }
+
+                button{
+                    border: 0px solid;
+                }
+
+                #title{
+                    font-size: ${this.titleFontSize};
+                    font-family: ${this.titleFont};
+                    color: ${this.fontColor};
+                    margin: 50px 0px 0px 0px;
+                }
+
+                #main{
+                    min-width: 100vw;
+                    min-height: 100vh;
+                    text-align: center;
+                }
+
+                #description{
+                    font-size: ${this.dFontSize};
+                    font-family: ${this.dFont};
+                    color: ${this.dColor};
+                    margin: 0px 0px 100px 0px;
+                }
+
+                #currency{
+                    font-size: ${this.cFontSize};
+                    font-family: ${this.cFont};
+                    color: ${this.cColor};
+                }
+
+                #click{
+                    font-size: ${this.getMoneyFontSize};
+                    font-family: ${this.getMoneyFont};
+                    color: ${this.getMoneyColor}
+                    background-color: ${this.getMoneyButtonColor};
+                    padding: ${this.getMoneyPadding};
+                }
+
+                #upgradeWrapper{
+                    padding: 10px 0px 10px 50px;
+                    text-align: left;
+                }
+
+                #upgrades{
+
+                }
+
+                #upgradeConntainer{
+                    text-align: left;
+                }
+            `;
+            document.head.appendChild(style);
         }
 
         //Round function
