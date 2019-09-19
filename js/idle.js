@@ -23,7 +23,7 @@
 
             document.title = name;
             document.body.innerHTML = `
-                <link rel="stylesheet" type="text/css" href="Themes/default.css" id="theme_css">
+                <link rel="stylesheet" type="text/css" href="Themes/defaultLight.css" id="theme_css">
                 <section id="main">
                     <h1 id="title"></h1>
                     <p id="description"></p>
