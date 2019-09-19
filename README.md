@@ -1,6 +1,6 @@
 
 # idle 0.12
-A simple to use JS library to make basic idle/incremental games
+A simple to use JS library to make basic idle/incremental games.  
 The idea is/was, that this library is not the most complex one. It should just enable everyone (even people who don't understand English) to make a simple game in as few lines as possible.
 
 ## How to
@@ -12,7 +12,7 @@ With the idle.setTheme() function, you can change between themes that are Placed
 
      idle.setTheme("defaultDark")
 #### Game settings
-The idle.game() function will let you set the basic settings of your game and it will create the HTML for you.
+The idle.game() function will let you set the basic settings of your game and it will create the HTML for you.  
 Always use the idle.style() function before idle.game()
 
     idle.game(
@@ -34,8 +34,8 @@ With: let yourUpgradeName = new idle.upgrade() can you create your own upgrades.
 
 ## Change log:
 #### *V. 0.12:*
--- Update to the Filestructure
--- Added a simple themeselector instead of the idle.style() function in 0.11. You can now choose between defaultDark and defaultLight or create your own.
+-- Update to the Filestructure  
+-- Added a simple themeselector instead of the idle.style() function in 0.11. You can now choose between defaultDark and defaultLight or create your own.  
 -- A little bit of cleanup in the idle.js
 #### *V. 0.11:*
 -- Added the ability to style a few of the elements of the game. more will follow soon.
