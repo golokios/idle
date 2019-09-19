@@ -1,0 +1,67 @@
+html{
+    top: 100;
+}
+
+body{
+    background-color: #2e2e2e;
+    color: #FFFFFF;
+    font-family: Helvetica;
+    margin: 0;
+    margin-top: -50px;
+}
+
+button{
+    border: 0px solid;
+    padding: 20px 40px 20px 40px;
+    font-size: 16px;
+    background-color: #0791ed;
+}
+
+#title{
+    font-size: 50px;
+    font-family: Lato;
+    color: #FFFFFF;
+    margin: 50px 0px 0px 0px;
+}
+
+#main{
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    padding: 50px 0 0 0 ; 
+}
+
+#description{
+    font-size: 18px;
+    color: #FFFFFF;
+    margin: 0px 0px 100px 0px;
+}
+
+#currency{
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+#click{
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color: #0791ed;
+}
+
+#upgradeWrapper{
+    padding: 10px 0px 10px 50px;
+    text-align: left;
+}
+
+#upgrades{
+
+}
+
+#upgradeConntainer{
+    text-align: left;
+}
+
+.upgradeButton{
+    background-color: #0791ed;
+    color: #FFFFFF;
+}
