@@ -8,38 +8,9 @@ Just copy all the files into a folder and open the index.html file in your favor
 ### Edit the settings (main.js)
 In the main.js file, you will set up your game, style it and create upgrades.
 #### Styling
-With the idle.style() function, you can set up the basic color and look of your game (more to come) and it will create the CSS for you
+With the idle.setTheme() function, you can change between themes that are Placed inside the Themes folder
 
-     idle.style(
-        	//Basic CSS
-        	"#1e1e1e", //background-Color
-        	"#FFFFFF", //Font-Color
-        	"#2e2e2e", //Main-Color
-        	"#FFFFFF", //Secondary-Color
-        	"Arial", //Font
-        
-        	//Title
-        	"50px", //Font-Size
-        	"#FFFFFF", //Font-Color
-        	"Helvetica", //Font
-        
-        	//Description
-        	"18px", //Font-Size
-        	"#FFFFFF", //Font-Color
-        	"Helvetica", //Font
-        
-        	//Currency
-        	"30px", //Font-Size
-        	"#FFFFFF", //Font-Color
-        	"Helvetica", //Font 
-        
-        	//Get money Button
-        	"16px", //Font-Size
-        	"#000000", //Font-Color
-        	"Helvetica", //Font 
-        	"#FFFFFF", //Button-Color
-        	"10px 20px 10px 20px", //Padding
-        );
+     idle.setTheme("defaultDark")
 #### Game settings
 The idle.game() function will let you set the basic settings of your game and it will create the HTML for you.
 Always use the idle.style() function before idle.game()
@@ -62,6 +33,10 @@ With: let yourUpgradeName = new idle.upgrade() can you create your own upgrades.
     let cup = new idle.upgrade("Cup", 1, 0.01, 0, 1, 1.1, 1.3);
 
 ## Change log:
+#### *V. 0.12:*
+-- Update to the Filestructure
+-- Added a simple themeselector instead of the idle.style() function in 0.11. You can now choose between defaultDark and defaultLight or create your own.
+-- A little bit of cleanup in the idle.js
 #### *V. 0.11:*
 -- Added the ability to style a few of the elements of the game. more will follow soon.
 #### *V. 0.1:*
