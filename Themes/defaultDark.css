@@ -65,3 +65,10 @@ button{
     background-color: #0791ed;
     color: #FFFFFF;
 }
+
+.deleteSave{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: white;
+}
